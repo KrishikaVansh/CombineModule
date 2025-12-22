@@ -21,7 +21,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Create the client instance
 export const redisClient = createClient({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
 });
@@ -33,3 +32,4 @@ export const connectRedis = async () => {
         console.log('Connected to Redis');
     }
 };
+
