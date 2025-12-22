@@ -20,7 +20,7 @@ import dotenv from 'dotenv';
 import { connectRedis,redisClient } from './config/redisClient';
 import { createApiRateLimiter } from './middlewares/apiRateLimit';
 import { redisMiddleware } from './middlewares/redisMiddleware';
-//import { requestLogger } from './middleware/reqLogger';
+import { requestLogger } from './middlewares/reqLogger';
 
 dotenv.config();
 const app = express();
@@ -28,7 +28,7 @@ const app = express();
 async function start() {
     try {
         await connectRedis();
-        //app.use(requestLogger);
+        app.use(requestLogger);
 
         app.get('/health', async (req, res) => {
             try {
