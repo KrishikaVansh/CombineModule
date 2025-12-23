@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
+   // "rootDir": "./src",
+    //"outDir": "./dist",
 
    
     "module": "node16",             
@@ -10,7 +10,7 @@
     "esModuleInterop": true,          
 
     "lib": ["es2020"],
-    "types": ["node"],
+    "types": [],
 
     "sourceMap": true,
     "declaration": true,
