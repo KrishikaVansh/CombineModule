@@ -6,6 +6,7 @@ declare global {
       apiKey?: {
         roles: string[];
         owner: string;
+        
       };
     }
   }
