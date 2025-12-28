@@ -21,6 +21,7 @@ import { connectRedis,redisClient } from './config/redisClient';
 import { createApiRateLimiter } from './middlewares/apiRateLimit';
 import { redisMiddleware } from './middlewares/redisMiddleware';
 import { requestLogger } from './middlewares/reqLogger';
+import { generateApiKeyHandler } from './keyGeneration/keyGenController';
 
 dotenv.config();
 const app = express();
@@ -64,6 +65,8 @@ async function start() {
         app.get('/test', redisMiddleware, (req, res) => {
             res.json({ message: 'API key valid', apiKeyData: req.apiKey });
         });
+
+        app.post('/generate-key', express.json(), generateApiKeyHandler);
 
         const PORT = process.env.PORT || 5000;
         app.listen(PORT, () => {

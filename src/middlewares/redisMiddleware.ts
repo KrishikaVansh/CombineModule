@@ -2,6 +2,7 @@
 import { Request, Response, NextFunction } from "express";
 import {redisClient} from "../config/redisClient";
 import { hashApiKey } from "../utils/hash";
+import { permission } from "node:process";
 
 export async function redisMiddleware(
   req: Request,
@@ -48,8 +49,7 @@ export async function redisMiddleware(
     }
 
     const payload = {
-      roles: data.roles,
-      owner: data.owner
+      permissions: data.permissions,
     };
 
     // 4️⃣ Cache valid payload

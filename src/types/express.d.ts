@@ -4,8 +4,7 @@ declare global {
   namespace Express {
     interface Request {
       apiKey?: {
-        roles: string[];
-        owner: string;
+        permissions: string[];
         
       };
     }
