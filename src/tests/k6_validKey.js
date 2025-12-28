@@ -13,7 +13,7 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('http://localhost:3000/test', {
+  const res = http.get('http://localhost:5000/test', {
     headers: {
       'x-api-key': API_KEY,
     },
